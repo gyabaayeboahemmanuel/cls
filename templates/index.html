@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}
+
+{% endblock title %}
+{% block content %}
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Welcome to the Customary Lands System</h2>
+                <form method="POST" enctype="multipart/form-data">
+                                     
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group  p-t-15">
+                                <a href="{% url 'land:add_land'%}" class="btn p-t-15 btn--radius-2 btn--red">Add Land</a>   
+                            </div>
+                            <div class="input-group p-t-15">
+                                <a href="{% url 'chief:add_chief'%}" class="btn btn--radius-2 btn--green">Add CT Chief</a>   
+                            </div>
+
+                            <div class="input-group p-t-15">
+                                <a href="{% url 'client:add_client'%}" class="btn btn--radius-2 btn--green">Add Client</a>   
+                            </div>
+                        </div>
+                        <div class="col-2 ">
+                            {% comment %} <div class="input-group p-t-15">
+                                 <a href="{% url 'staff:add_staff'%}" class="p-t-15 btn btn--radius-2 btn--blue">Add CLS Staff</a>    
+                            </div> {% endcomment %}
+                      
+                            <div class="input-group p-t-15">
+                                <a href="{% url 'allocation:allocate'%}" class="btn btn--radius-2 btn--green">Allocate</a>
+    
+                            </div>
+                        </div>
+                        
+                    <!-- <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
