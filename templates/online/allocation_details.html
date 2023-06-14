@@ -2,26 +2,16 @@
 {% load static%}
 {% block content %}
 <body class="g-sidenav-show  bg-gray-200">
-  {% include 'online/side_nav.html' %}
+  {% comment %} {% include 'online/side_nav.html' %} {% endcomment %}
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
       <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <h4 class="font-weight-bolder mb-0">Techiman Customary Lands Secretariat </h4>
-          <h5 class="font-weight-bolder mb-0">Lands Management System</h5>
-        </nav>
+      
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group input-group-outline">
-             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search here ..." class="form-control">
-            </div>
-          </div>
+         
           <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-outline-warning btn-sm mb-0 me-3" href="{% url "admin_make_allocation" %}">Make Allocation</a>
-            </li>
             <li class="nav-item d-flex align-items-center">
               <a href="#" onclick="window.print()" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-print me-sm-1"></i>
@@ -37,84 +27,8 @@
                 </div>
               </a>
             </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
-            </li>
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-              <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New message</span> from Laur
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          13 minutes ago
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New album</span> by Travis Scott
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          1 day
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
-                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <title>credit-card</title>
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                              <g transform="translate(1716.000000, 291.000000)">
-                                <g transform="translate(453.000000, 454.000000)">
-                                  <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                  <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          Payment successfully completed
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          2 days
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </li>
+            
+            
           </ul>
         </div>
       </div>
@@ -124,96 +38,50 @@
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Allocation Records</h6>
-              </div>
-            </div>
+         
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0">
-                <table id="myTable" class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Allocation ID</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reciept Number</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Client Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Land Details</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Allocated</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
-                      <th class="text-secondary opacity-7"></th>
-                    </tr>
-                  </thead>
-                  <tbody id='tbodyID'>
-                    {% for allocate in allocation_data %}
-                    <tr>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">{{allocate.id}}</p>
-                      </td>
-                      <td>
-                        <div class="d-flex">
-                          
-                          <div class="d-flex flex-column justify-content-center">                                                                
-                            <h6 class="mb-0 text-sm">{{allocate.receiptno}} </h6>
-                            {% comment %} <p class="text-xs text-secondary mb-0">{{allocate.client.}}</p> {% endcomment %}
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">{{allocate.client.FirstName}} {{allocate.client.MiddleName}} {{allocate.client.LastName}}</p>
-                        <p class="text-xs text-secondary mb-0">{{allocate.client.username}}</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">{{allocate.land}}</span>
-                        
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{allocate.dateofallocation}}</span>
-                      </td>
-                      <td><a href="{% url 'admin_view_allocation' allocate.id %}"> <span class="material-icons"> view_note </span></a>   <a href="{% url 'admin_delete_allocation' allocate.id %}"><a href="{% url 'admin_edit_allocation' allocate.id %}"> <span class="material-icons"> edit_note </span></a>   <a href="{% url 'admin_delete_allocation' allocate.id %}"><span class="material-icons"> delete </span></a></td>
-
-                    </tr>
-                    {% endfor %}
-                
-                  </tbody>
-                </table>
+                <h1 class="">TECHIMAN TRADTIONAL AREA</h1>
+                <h3>LAND/BUILDING PLOT ALLOCATION CHIT</h3>
+                <div>APPLICATION FOR PLOT NO: {{allocation.land.plot}} BLOCK :  {{allocation.land.block}}SECTOR: {{allocation.land.sector}}</div>
+                {% if allocation.client.profile_picture %}
+                <div>
+                  {% comment %} <img src="{{client.profile_picture.url}}" alt = "image did not load"  > {% endcomment %}
+                  <img src="{{allocation.client.profile_picture.url}}" class="border-radius-lg" width="200px" height="200px"alt="user1">
+                </div>
+                {% else %}
+                <div>
+                  <img src="#" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                </div>
+                {% endif %}
               </div>
+              <p>The above mentioned plot has been approved and allocated same to {{allocation.client.FirstName}} {{allocation.client.LastName}}of Techiman for Residential purpose </p>
+              <div>
+                <p>The Applicant was further considered subject your compliance to the following conditions:</p>
+                <p>1. That the Applicant/Recipient shall pay the necessary fees involved.</p>
+                <p>2. That the Applicant should not use the approved Land/Building Plot for any purpose other than which has been speciified on the chit</p>
+                <p>3. That the Applicant shall within twelve months of allocation commence and complete construction on the said plot within two (2) years</p>
+                <p>4. That if the Applicant finds any cash crop on the plot allocated the Techiman Traditional Authority should be notified to five the farm owner duration to harvest the crop and vacate the said land before development commence.</p>
+                <p>5. That the recipient/Applicant shall upon acquisition of Land/Building plot pay an annual ground rent to the Stool Lands Administrator.</p>
+                <p>6. That the Techiman Stool Reserves the right to Re-enter the Land/Building plot if any of the above conditions are not complied with</p>
+                <p>7. The Land/premises shall not be used for any purpose that may cause or constitute nuisance to other residents in the neighbourhood</p>
+                <p>8. That within a period of one year after allocation, the Applicant/Allocatee shall obtain the requisite concurrence and permits from the Lands Commission/Techiman Municiapl Assembly</p>
+                <p>I shall therefore be grateful if the neccessary action will be taken to prepare the Applicant's site Plan for authentication</p>
+              </div>
+              
+              <div> ..................</div>
+              <div> CARETAKER CHIEF</div>
+              <div>{{allocation.chief.StoolName}}</div>
+              <div>{{allocation.CareTakerChief.FullName}}</div>
+              <div> ..................</div>
+              <div> OSEADEYO AKUMFI AMEYAW IV</div>
+              <div>(OMANHENE)</div>
+              <div>TECHIMAN TRADTIONAL AREA</div>
             </div>
           </div>
         </div>
       </div>
-{% comment %}       
-      <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer> {% endcomment %}
+
     </div>
   </main>
   <div class="fixed-plugin">

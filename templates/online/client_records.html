@@ -152,9 +152,17 @@
                       </td>
                       <td>
                         <div class="d-flex">
+                          {% if client.profile_picture %}
                           <div>
-                            <img src=" {{client.profile_picture.url}}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                            {% comment %} <img src="{{client.profile_picture.url}}" alt = "image did not load"  > {% endcomment %}
+                            <img src="{{client.profile_picture.url}}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                           </div>
+                          {% else %}
+                          <div>
+                            <img src=" #" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                          </div>
+                          {% endif %}
+                          
                           <div class="d-flex flex-column justify-content-center">                                                                
                             <h6 class="mb-0 text-sm">{{client.FirstName}} {{client.MiddleName}} {{client.LastName}}</h6>
                             <p class="text-xs text-secondary mb-0">{{client.username}}</p>
@@ -168,7 +176,7 @@
                         <p class="text-xs font-weight-bold mb-0">{{client.email}}</p>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">{{client.dataofbirth}}</p>
+                        <p class="text-xs font-weight-bold mb-0">{{client.dateofbirth}}</p>
                       </td>
                       <td>
                         <p class="text-xs font-weight-bold mb-0">{{client.GhanaCard}}</p>

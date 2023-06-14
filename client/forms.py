@@ -13,7 +13,7 @@ class ClientForm(ModelForm):
         self.fields["email"].widget.attrs.update({'class' :('input--style-4'),})
         self.fields["PhoneNumber"].widget.attrs.update({'class' :('input--style-4'),})
         self.fields["profile_picture"].widget.attrs.update({'class' :('input--style-4'),})
-        self.fields["dateofbirth"].widget.attrs.update({'class' :('input--style-4 js-datepicker '),})
+        self.fields["dateofbirth"].widget.attrs.update({'class' :('kwame'),})
         self.fields["GhanaCard"].widget.attrs.update({'class' :('input--style-4'),})
     widgets = {
       'dateofbirth': DateTimeInput(attrs={'type': 'datetime-local'}),

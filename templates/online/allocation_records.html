@@ -138,6 +138,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reciept Number</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Client Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Land Details</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Caretaker Chief</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Allocated</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
                       <th class="text-secondary opacity-7"></th>
@@ -162,9 +163,11 @@
                         <p class="text-xs font-weight-bold mb-0">{{allocate.client.FirstName}} {{allocate.client.MiddleName}} {{allocate.client.LastName}}</p>
                         <p class="text-xs text-secondary mb-0">{{allocate.client.username}}</p>
                       </td>
-                      <td class="align-middle text-center text-sm">
+                      <td>
                         <span class="text-secondary text-xs font-weight-bold">{{allocate.land}}</span>
-                        
+                      </td>
+                      <td>
+                        <span class="text-secondary text-xs font-weight-bold">{{allocate.CareTakerChief}}</span>
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">{{allocate.dateofallocation}}</span>

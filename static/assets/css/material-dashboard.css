@@ -3295,9 +3295,17 @@ textarea.form-control-lg {
   border-width: 1px 0;
 }
 
+.input-group1 {
+  position: relative;
+  /* display: flex; */
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
 .input-group {
   position: relative;
-  display: flex;
+   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   width: 100%;
@@ -5774,7 +5782,7 @@ fieldset:disabled .btn {
 }
 
 .alert-success {
-  --bs-alert-color: #2e6930;
+  --bs-alert-color: #ffffff;
   --bs-alert-bg: #dbefdc;
   --bs-alert-border-color: #c9e7cb;
 }
@@ -5804,7 +5812,7 @@ fieldset:disabled .btn {
 }
 
 .alert-danger {
-  --bs-alert-color: #922820;
+  --bs-alert-color: #ffffff;
   --bs-alert-bg: #fdd9d7;
   --bs-alert-border-color: #fcc7c2;
 }
