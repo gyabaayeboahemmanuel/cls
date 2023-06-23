@@ -28,16 +28,16 @@ class StaffForm(UserCreationForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model= Profile
-        fields= ('profile_picture',)
+        fields= ('user','profile_picture','position')
     # def clean(self):
     #     cleaned_data = super(Profile, self).clean()
         # self.fields['user'].widget.attrs.update({
         # #             'styles': ('display:none')
         # })
-    def __init__(self, *args, **kwargs):
-        super(UserProfileForm, self).__init__(*args, **kwargs)
-        self.fields["username"].widget.attrs.update({'class' :('input--style-4'),})
-        self.fields["password"].widget.attrs.update({'class' :('input--style-4'),})
-        self.fields["email"].widget.attrs.update({'class' :('input--style-4'),})
+    # def __init__(self, *args, **kwargs):
+    #     super(UserProfileForm, self).__init__(*args, **kwargs)
+    #     self.fields["username"].widget.attrs.update({'class' :('input--style-4'),})
+    #     self.fields["password"].widget.attrs.update({'class' :('input--style-4'),})
+    #     self.fields["email"].widget.attrs.update({'class' :('input--style-4'),})
 
     

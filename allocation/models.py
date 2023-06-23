@@ -10,3 +10,9 @@ class Allocation(models.Model):
     land = models.OneToOneField(Land, on_delete=models.CASCADE, related_name='allocated')
     CareTakerChief = models.OneToOneField(CareTakerChief, on_delete=models.CASCADE, related_name='chief')
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
+
+class AllocationChit(models.Model):
+    dateofallocation = models.DateField(auto_now=True)
+    clientfullname = models.CharField(max_length=255)
+    land = models.CharField(max_length=255)
+    CareTakerChief = models.OneToOneField(CareTakerChief, on_delete=models.CASCADE, related_name='allocatedcaretakerchief')

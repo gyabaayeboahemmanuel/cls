@@ -2,7 +2,7 @@
 {% load static%}
 {% block content %}
 <body class="g-sidenav-show  bg-gray-200">
-  {% include 'online/side_nav.html' %}
+  {% include 'online/chief_side_nav.html' %}
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
@@ -20,7 +20,7 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-outline-warning btn-sm mb-0 me-3" href="{% url "admin_make_allocation" %}">Make Allocation</a>
+              <a class="btn btn-outline-primary btn-sm mb-0 me-3" href="{% url 'add_allocation_chit' %}">Add Allocation Chit</a>
             </li>
             <li class="nav-item d-flex align-items-center">
               <a href="#" onclick="window.print()" class="nav-link text-body font-weight-bold px-0">
@@ -121,62 +121,60 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
+     
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Allocation Records</h6>
+                <h6 class="text-white text-capitalize ps-3">Allocation Chits </h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0">
-                <table id="myTable" class="table align-items-center mb-0">
+                <table id="myTable" class="table align-items-center justify-content-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Allocation ID</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reciept Number</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Client Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Land Details</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Caretaker Chief</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Allocated</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
-                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CaretakerChit ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Client Full Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Land Allocated</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Issued</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody id='tbodyID'>
-                    {% for allocate in allocation_data %}
+                    {% for chit in allocation_chits %}
                     <tr>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">{{allocate.id}}</p>
+                        <p class="text-sm font-weight-bold mb-0">{{chit.id}}</p>
                       </td>
                       <td>
-                        <div class="d-flex">
-                          
-                          <div class="d-flex flex-column justify-content-center">                                                                
-                            <h6 class="mb-0 text-sm">{{allocate.receiptno}} </h6>
-                            {% comment %} <p class="text-xs text-secondary mb-0">{{allocate.client.}}</p> {% endcomment %}
+                        <div class="d-flex px-2">
+                         
+                          <div class="my-auto">
+                            <h6 class="mb-0 text-sm">{{chit.clientfullname}}</h6>
                           </div>
                         </div>
                       </td>
+                      
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">{{allocate.client.FirstName}} {{allocate.client.MiddleName}} {{allocate.client.LastName}}</p>
-                        <p class="text-xs text-secondary mb-0">{{allocate.client.username}}</p>
+                        <p class="text-sm font-weight-bold mb-0">{{chit.land}}</p>
                       </td>
+                      
                       <td>
-                        <span class="text-secondary text-xs font-weight-bold">{{allocate.land}}</span>
+                        <p class="text-sm font-weight-bold mb-0">{{chit.dateofallocation}}</p>
                       </td>
-                      <td>
-                        <span class="text-secondary text-xs font-weight-bold">{{allocate.CareTakerChief}}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{allocate.dateofallocation}}</span>
-                      </td>
-                      <td><a href="{% url 'admin_view_allocation' allocate.id %}"> <span class="material-icons"> view_note </span></a> <a href="{% url 'admin_edit_allocation' allocate.id %}"> <span class="material-icons"> edit_note </span></a></td>
+                      
+                      <td><a href="{% url 'admin_edit_chief' chit.id %}"> <span class="material-icons"> edit_note </span></a> </td>
+                      <td class="align-middle">
 
-                    </tr>
+                        <button class="btn btn-link text-secondary mb-0">
+                          <i class="fa fa-ellipsis-v text-xs"></i>
+                        </button>
+                      </td>
+                    </tr>                     
                     {% endfor %}
-                
                   </tbody>
                 </table>
               </div>
@@ -184,8 +182,7 @@
           </div>
         </div>
       </div>
-{% comment %}       
-      <footer class="footer py-4  ">
+      {% comment %} <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">

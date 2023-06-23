@@ -6,3 +6,9 @@ class AllocationForm(ModelForm):
         model = Allocation 
         # fields= ()
         fields = ("receiptno", "land", "CareTakerChief", "client")
+
+class AllocationChitForm(ModelForm):
+    class Meta:
+        model = AllocationChit
+        fields = ("clientfullname","land")
+

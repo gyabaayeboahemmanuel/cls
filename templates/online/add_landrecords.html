@@ -29,6 +29,8 @@
           </div>
         </div>
       </div>
+
+     
       <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
@@ -139,6 +141,7 @@
       </div>
     </div>
   </div>
+  
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -158,4 +161,11 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.0.5"></script>
 </body>
+
+<script type="text/javascript">
+  var no_record_check = {{ no_record_check }};  // no_record_check **must** be an integer
+  if (no_record_check == 0) {
+      alert('⚠️Error: Land Already Registered');
+  }
+  </script>
 {% endblock content %}

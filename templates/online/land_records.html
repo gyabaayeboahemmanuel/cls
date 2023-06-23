@@ -131,6 +131,14 @@
                 </h6>
               </div>
             </div>
+            <h1>{{ no_record_check }} </h1>
+            <script type="text/javascript">
+              var no_record_check = {{ no_record_check }};  // no_record_check **must** be an integer
+              if (no_record_check == 0) {
+                  alert('No record found');
+              }
+              </script>
+              
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0"  id="myTable">

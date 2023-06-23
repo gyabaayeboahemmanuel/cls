@@ -12,20 +12,21 @@
           <h4 class="font-weight-bolder mb-0">Techiman Customary Lands Secretariat </h4>
           <h5 class="font-weight-bolder mb-0">Lands Management System</h5>
         </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        {% comment %} <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group input-group-outline">
-             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search here ..." class="form-control">
+              <label class="form-label">Type here...</label>
+              <input type="text" class="form-control">
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-outline-warning btn-sm mb-0 me-3" href="{% url "admin_make_allocation" %}">Make Allocation</a>
+              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="#" onclick="window.print()" class="nav-link text-body font-weight-bold px-0">
-                <i class="fa fa-print me-sm-1"></i>
-                <span class="d-sm-inline d-none">Print</span>
+              <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+                <span class="d-sm-inline d-none">Sign In</span>
               </a>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -116,7 +117,7 @@
               </ul>
             </li>
           </ul>
-        </div>
+        </div> {% endcomment %}
       </div>
     </nav>
     <!-- End Navbar -->
@@ -126,97 +127,49 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Allocation Records</h6>
+                <h6 class="text-white text-capitalize ps-3">Add Staff</h6>
               </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table id="myTable" class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Allocation ID</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reciept Number</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Client Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Land Details</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Caretaker Chief</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Allocated</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
-                      <th class="text-secondary opacity-7"></th>
-                    </tr>
-                  </thead>
-                  <tbody id='tbodyID'>
-                    {% for allocate in allocation_data %}
-                    <tr>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">{{allocate.id}}</p>
-                      </td>
-                      <td>
-                        <div class="d-flex">
-                          
-                          <div class="d-flex flex-column justify-content-center">                                                                
-                            <h6 class="mb-0 text-sm">{{allocate.receiptno}} </h6>
-                            {% comment %} <p class="text-xs text-secondary mb-0">{{allocate.client.}}</p> {% endcomment %}
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">{{allocate.client.FirstName}} {{allocate.client.MiddleName}} {{allocate.client.LastName}}</p>
-                        <p class="text-xs text-secondary mb-0">{{allocate.client.username}}</p>
-                      </td>
-                      <td>
-                        <span class="text-secondary text-xs font-weight-bold">{{allocate.land}}</span>
-                      </td>
-                      <td>
-                        <span class="text-secondary text-xs font-weight-bold">{{allocate.CareTakerChief}}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">{{allocate.dateofallocation}}</span>
-                      </td>
-                      <td><a href="{% url 'admin_view_allocation' allocate.id %}"> <span class="material-icons"> view_note </span></a> <a href="{% url 'admin_edit_allocation' allocate.id %}"> <span class="material-icons"> edit_note </span></a></td>
-
-                    </tr>
-                    {% endfor %}
-                
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            </div>      
           </div>
         </div>
       </div>
-{% comment %}       
+      <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Staff Registration Form</h2>
+                    <form method="POST"action="{% url 'admin_edit_staffprofile' username %}?next=/"  enctype="multipart/form-data">
+                        {% csrf_token %}
+                          <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    {{staffform}}
+                                    {% comment %} <label class="label">first name</label>
+                                    <input class="input--style-4" type="text" name="first_name"> {% endcomment %}
+                                </div>
+                            </div>
+                          </div>
+                          </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn-primary mx-4" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
       <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
+             
             </div>
             <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
+              
             </div>
           </div>
         </div>
-      </footer> {% endcomment %}
+      </footer>
     </div>
   </main>
   <div class="fixed-plugin">
